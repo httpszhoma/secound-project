@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Recipe App</h1>
+        <div class="search-bar">
+            <input type="text" id="food-name-input" placeholder="Food Name">
+            <input type="text" id="ingredient-input" placeholder="Ingredients (e.g., tomato, cheese)">
+            <button id="search-button">Search</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="recipe-grid">
+          
+        </section>
+    </main>
+
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Recipe Name</h2>
+            <img src="images/cosmos_5200x3250_2w96o.jpg" alt="Recipe Image">
+            <h3>Ingredients</h3>
+            <ul>
+                <li>Ingredient 1 - Quantity</li>
+                <li>Ingredient 2 - Quantity</li>
+            </ul>
+            <h3>Instructions</h3>
+            <ol>
+                <li>Step 1 of the cooking process</li>
+                <li>Step 2 of the cooking process</li>
+            </ol>
+            <h3>Nutritional Information</h3>
+            <p>Calories: 200 kcal, Protein: 10g, Fat: 5g</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

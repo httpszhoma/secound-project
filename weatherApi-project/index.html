@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather APP</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6Z5yQNPwjK3f5dFSbJWic212QfHwz76A&libraries=places&language=en" type="text/javascript"></script>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="search-box">
+            <i class="bi bi-geo-alt"></i>
+            <input type="text" placeholder="Enter your location">
+            <button class="search-button">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+        <div class="weather-info">
+            <img id="weather-image" src="images/cloud.png" alt="">
+            <div class="current_info">
+                <h1 class="currentCity">Almaty</h1>
+                <h1 class="temperature">
+                    16 <span class="temperature-type">
+                        °C
+                    </span>
+    
+                </h1>
+            </div>
+            
+            <h1 class="weather-state">
+                Broken Clouds
+            </h1>
+            
+            <h2 class="not-found"
+            style="display: none;"
+            >
+                Location doesn't exist !!!
+            </h2>
+
+            <button class="unit-toggle">°C / °F</button>
+
+        </div>
+        <div class="additional-info">
+            <div class="humidity">
+                <i class="bi bi-wind"></i>
+                <div class="information">
+                    <h2>0%</h2>
+                    <h4>Humidity</h4>
+
+                </div>
+            </div>
+
+            <div class="wind-speed">
+                <i class="bi bi-water"></i>
+                <div class="information">
+                    <h2>0Km/h</h2>
+                    <h4>Wind Speed</h4>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="forecast-container">
+        </div>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

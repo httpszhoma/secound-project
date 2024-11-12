@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Detail</title>
+    <link rel="stylesheet" href="../styles/detail.css">
+    <link rel="stylesheet" href="../styles/common.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="logo">
+            <a href="main.html"><img src="../medias/logo.png" alt="ZhomyApp Logo"></a>
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="main.html">Movies</a></li>
+            <li><a href="mylist.html">My List</a></li>
+        </ul>
+        <div class="navbar-right">
+            <input type="text" placeholder="Search" class="search-input" id="searchInput">
+            <div class="search-dropdown" id="searchDropdown"></div>
+        </div>
+        <div class="navbar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+<main class="detail-content">
+    <section class="movie-video">
+        <iframe id="movie-trailer" allow='autoplay'>
+        </iframe>
+    </section>
+
+    <section class="movie-info">
+        <div class="poster">
+            <img id="movie-poster" src="" alt="Movie Poster">
+        </div>
+        <div class="details">
+            <h1 id="movie-title"></h1>
+            <p id="movie-genres"></p>
+            <p id="movie-rating"></p>
+            <p id="movie-overview"></p>
+            <div class="additional-info">
+                <p><strong>Country:</strong> <span id="movie-country"></span></p>
+                <p><strong>Release Date:</strong> <span id="movie-release-date"></span></p>
+                <p><strong>Runtime:</strong> <span id="movie-runtime"></span> minutes</p>
+            </div>
+        </div>
+        <button id="save-to-list">Save to My List</button>
+    </section>
+
+    <section class="movie-grid-section">
+        <h2 class="section-title">You May Also Like</h2>
+        <div class="movie-grid" id="recommended-movies">
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2023 YourApp. All rights reserved.</p>
+</footer>
+
+<script src="scripts/index.js"></script>
+<script src="scripts/detail.js"></script>
+</body>
+</html>

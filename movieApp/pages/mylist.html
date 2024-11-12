@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My List</title>
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/mylist.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="logo">
+            <a href="main.html"><img src="../medias/logo.png" alt="ZhomyApp Logo"></a>
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="main.html">Movies</a></li>
+            <li><a href="mylist.html">My List</a></li>
+        </ul>
+        <div class="navbar-right">
+            <input type="text" placeholder="Search" class="search-input" id="searchInput">
+            <div class="search-dropdown" id="searchDropdown"></div>
+        </div>
+
+        <div class="navbar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+<main class="mylist-content">
+    <h1>Your Movie List</h1>
+    <div id="mylist-movies" class="movie-list">
+    </div>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2023 YourApp. All rights reserved.</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const movieListContainer = document.getElementById('mylist-movies');
+
+        const myList = JSON.parse(localStorage.getItem('myList')) || [];
+
+        if (myList.length === 0) {
+            movieListContainer.innerHTML = '<p>Your movie list is empty.</p>';
+        } else {
+            myList.forEach((movie, index) => {
+                const movieElement = document.createElement('div');
+                movieElement.classList.add('movie-item');
+
+                movieElement.innerHTML = `
+                <div class="movie-poster">
+                    <img src="${movie.poster}" alt="${movie.title}">
+                </div>
+                <div class="movie-details">
+                    <h3>${index + 1}. ${movie.title}</h3>
+                    <p><strong>Year:</strong> ${movie.year}</p>
+                    <p><strong>Duration:</strong> ${movie.duration}</p>
+                    <p><strong>Rating:</strong> ${movie.rating} <span>(${movie.votes})</span></p>
+                </div>
+            `;
+                movieElement.addEventListener('click', () => {
+                    window.location.href = `detail.html?id=${movie.id}`;
+                });
+
+                movieListContainer.appendChild(movieElement);
+            });
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ZhomyApp-(Home)</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/common.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="logo">
+            <a href="main.html"><img src="../medias/logo.png" alt="ZhomyApp Logo" width="90"></a>
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="#upcoming-grid">Movies</a></li>
+            <li><a href="mylist.html">My List</a></li>
+        </ul>
+        <div class="navbar-right">
+            <input type="text" placeholder="Search" class="search-input" id="searchInput">
+            <div class="search-dropdown" id="searchDropdown"></div>
+        </div>
+
+        <div class="navbar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+
+<main class="main-content">
+    <section class="featured-movie">
+        <video autoplay muted loop>
+            <source src="../medias/SPIDER-MAN_%20INTO%20THE%20SPIDER-VERSE%20-%20Official%20Trailer%20(HD).mp4"
+                    type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="featured-overlay">
+            <div class="featured-content">
+                <h3 class="featured-title">Spider-Man: Web of Spider-Verses</h3>
+                <p class="featured-description">
+                    Miles Morales embarks on an adventure across the multiverse with Gwen Stacy and a new team of
+                    Spider-Men who must face a powerful villain. </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="movie-grid-section">
+        <h2 class="section-title">Upcoming Movies</h2>
+        <div class="movie-grid" id="upcoming-grid">
+        </div>
+        <h2 class="section-title">Popular Movies</h2>
+        <div class="movie-grid" id="popular-grid">
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2023 Netflix. All rights reserved.</p>
+</footer>
+
+<script src="scripts/index.js"></script>
+<script>
+    const popularGrid = document.getElementById('popular-grid');
+    const upComingGrid = document.getElementById('upcoming-grid');
+
+    async function getMovies() {
+        const popularUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
+        const upcomingUrl = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`;
+
+        let popularData = await fetchUrl(popularUrl);
+        const upcomingData = await fetchUrl(upcomingUrl);
+        upcomingData.results = upcomingData.results.slice(0, 10)
+        await parseMovies(popularData, popularGrid);
+        await parseMovies(upcomingData, upComingGrid);
+    }
+
+    getMovies()
+</script>
+</body>
+</html>
